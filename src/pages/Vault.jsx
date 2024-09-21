@@ -1,17 +1,33 @@
-import { vault } from "../data/vaultDetail";
-import Card from "../features/card/Card";
+import { useSelector } from "react-redux";
+import Modal from "../ui/Modal";
+import CreateBucketForm from "../features/bucket/CreateBucketForm";
+import Bucket from "../features/bucket/Bucket";
+
 function Vault() {
+  const vault = useSelector((state) => state.bucket) || {};
+
   return (
-    <div className="flex justify-around p-4">
-      <div>
-        {vault.education.map((card, i) => (
-          <Card card={card} key={i} />
-        ))}
+    <div>
+      <div className="flex">
+        {Object.keys(vault).map((bucket, i) => {
+          return (
+            <div key={i}>
+              <Bucket bucket={bucket} vault={vault} />
+            </div>
+          );
+        })}
       </div>
-      <div>
-        {vault.entertainment.map((card) => (
-          <Card card={card} key={card.id} />
-        ))}
+      <div className="m-2">
+        <Modal>
+          <Modal.Open>
+            <button className="p-2 bg-blue-500 text-blue-100">
+              ADD NEW BUCKET
+            </button>
+          </Modal.Open>
+          <Modal.Window>
+            <CreateBucketForm />
+          </Modal.Window>
+        </Modal>
       </div>
     </div>
   );

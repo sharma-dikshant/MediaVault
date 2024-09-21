@@ -4,21 +4,21 @@ const initialState = {
   entertainment: [
     {
       name: "Top 10 Comedy Movies",
-      videoLink: "./newton_-_63040 (720p).mp4",
+      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
     {
       name: "Best Action Scenes",
-      videoLink: "./newton_-_63040 (720p).mp4",
+      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
   ],
   education: [
     {
       name: "Introduction to JavaScript",
-      videoLink: "./newton_-_63040 (720p).mp4",
+      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
     {
       name: "Advanced CSS Techniques",
-      videoLink: "./newton_-_63040 (720p).mp4",
+      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
   ],
 };
