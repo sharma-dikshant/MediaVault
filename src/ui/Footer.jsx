@@ -1,8 +1,12 @@
+import styles from "./Footer.module.css";
+
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-4">
-      <div className="container mx-auto text-center">
-        <p>Keep important video links at a unified place.</p>
+    <footer className={styles.footer}>
+      <div className={styles["footer-container"]}>
+        <p className={styles["footer-text"]}>
+          Keep important video links at a unified place.
+        </p>
       </div>
     </footer>
   );

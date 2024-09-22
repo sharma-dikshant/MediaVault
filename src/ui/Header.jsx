@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <div className="bg-blue-500 text-white p-4 text-center md:text-left flex justify-between">
-      <Link to="/home">MediaVault</Link>
-      <Link>Login</Link>
-    </div>
+    <header className={styles.header}>
+      <Link to="/home" className={styles["header-link"]}>
+        MediaVault
+      </Link>
+      <Link to="/login" className={styles["header-link"]}>
+        Login
+      </Link>
+    </header>
   );
 }
 

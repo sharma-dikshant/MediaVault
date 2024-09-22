@@ -1,16 +1,21 @@
 import { Outlet } from "react-router";
+import styles from "./AppLayout.module.css";
 import Footer from "./Footer";
 import Header from "./Header";
 
 function AppLayout() {
   return (
-    <>
-      <Header />
-      <main>
+    <div className={styles["app-container"]}>
+      <header className={styles["header"]}>
+        <Header />
+      </header>
+      <main className={styles["main"]}>
         <Outlet />
       </main>
-      <Footer />
-    </>
+      <footer className={styles["footer"]}>
+        <Footer />
+      </footer>
+    </div>
   );
 }
 

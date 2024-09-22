@@ -1,0 +1,38 @@
+/* General footer styling */
+.footer {
+    background-color: #2d3748;
+    /* Dark gray */
+    color: white;
+    padding: 1rem 0;
+    /* Vertical padding */
+    text-align: center;
+}
+
+/* Container for content */
+.footer-container {
+    max-width: 800px;
+    /* Limit max width for larger screens */
+    margin: 0 auto;
+    /* Center the container */
+}
+
+/* Footer text styling */
+.footer-text {
+    font-size: 1rem;
+    /* Font size */
+    line-height: 1.5;
+    /* Line height for readability */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1rem 0;
+        /* Adjust padding for smaller screens */
+    }
+
+    .footer-text {
+        font-size: 0.875rem;
+        /* Smaller font size on mobile */
+    }
+}
