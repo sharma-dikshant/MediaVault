@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { updateBucketName } from "./bucketSlice";
+
 import Card from "../card/Card";
 import Modal from "../../ui/Modal";
 import CreateCardForm from "../card/CreateCardForm";
+import Button from "../../ui/Button";
 
 function Bucket({ bucket, vault }) {
   const dispatch = useDispatch();
@@ -37,7 +40,7 @@ function Bucket({ bucket, vault }) {
       ))}
       <Modal>
         <Modal.Open>
-          <button className="bg-blue-500 text-blue-50 p-2">ADD CARD</button>
+          <Button styleType="primary">ADD CARD</Button>
         </Modal.Open>
         <Modal.Window>
           <CreateCardForm bucketName={bucket} />

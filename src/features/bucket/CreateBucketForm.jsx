@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { createBucket } from "./bucketSlice";
+
+import Button from "../../ui/Button";
 
 function CreateBucketForm() {
   const dispatch = useDispatch();
@@ -23,7 +26,7 @@ function CreateBucketForm() {
           name="bucketName"
           onChange={(e) => setBucketName(e.target.value)}
         />
-        <button>ADD BUCKET</button>
+        <Button styleType="submitBtn">ADD BUCKET</Button>
       </form>
     </div>
   );

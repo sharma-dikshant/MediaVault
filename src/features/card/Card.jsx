@@ -1,8 +1,12 @@
-import ReactPlayer from "react-player/youtube";
-import { removeCard } from "../bucket/bucketSlice";
 import { useDispatch } from "react-redux";
+import ReactPlayer from "react-player/youtube";
+
+import { removeCard } from "../bucket/bucketSlice";
+
 import Modal from "../../ui/Modal";
 import VideoPlayer from "../videoplayer/VideoPlayer";
+import Button from "../../ui/Button";
+
 function Card({ card, index, bucketName }) {
   const dispatch = useDispatch();
   function handleDelete() {
@@ -26,8 +30,10 @@ function Card({ card, index, bucketName }) {
             <h2>{card?.name}</h2>
           </div>
           <div className="flex justify-between">
-            <button onClick={handleDelete}>DELETE</button>
-            <button>EDIT</button>
+            <Button styleType="danger" onClick={handleDelete}>
+              DELETE
+            </Button>
+            <Button styleType="primary">EDIT</Button>
           </div>
         </div>
       </Modal.Open>

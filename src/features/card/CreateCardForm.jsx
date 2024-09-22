@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { addCard } from "../bucket/bucketSlice";
 import { useDispatch } from "react-redux";
+
+import { addCard } from "../bucket/bucketSlice";
+
+import Button from "../../ui/Button";
 
 function CreateCardForm({ bucketName }) {
   const dispatch = useDispatch();
@@ -32,7 +35,9 @@ function CreateCardForm({ bucketName }) {
         onChange={(e) => setCardVideoLink(e.target.value)}
         placeholder="Card Video Link"
       />
-      <button onClick={handleAddCard}>CREATE CARD</button>
+      <Button styleType="submitBtn" onClick={handleAddCard}>
+        CREATE CARD
+      </Button>
     </div>
   );
 }

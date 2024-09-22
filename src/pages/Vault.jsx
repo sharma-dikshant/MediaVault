@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
+
 import Modal from "../ui/Modal";
 import CreateBucketForm from "../features/bucket/CreateBucketForm";
 import Bucket from "../features/bucket/Bucket";
+import Button from "../ui/Button";
 
 function Vault() {
   const vault = useSelector((state) => state.bucket) || {};
@@ -20,9 +22,7 @@ function Vault() {
       <div className="m-2">
         <Modal>
           <Modal.Open>
-            <button className="p-2 bg-blue-500 text-blue-100">
-              ADD NEW BUCKET
-            </button>
+            <Button>ADD NEW BUCKET</Button>
           </Modal.Open>
           <Modal.Window>
             <CreateBucketForm />

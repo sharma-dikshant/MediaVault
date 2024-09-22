@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../ui/Button";
 
 function Home() {
   return (
@@ -9,9 +10,7 @@ function Home() {
           Your secure media storage solution.
         </p>
         <Link to="/vault">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
-            Browse Vault
-          </button>
+          <Button styleType="primary">Browse Vault</Button>
         </Link>
       </div>
     </div>
