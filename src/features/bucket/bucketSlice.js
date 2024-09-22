@@ -1,30 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  entertainment: [
-    {
-      id: crypto.randomUUID(),
-      name: "Top 10 Comedy Movies",
-      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
-    },
-    {
-      name: "Best Action Scenes",
-      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
-    },
-  ],
-  education: [
-    {
-      id: crypto.randomUUID(),
-      name: "Introduction to JavaScript",
-      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Advanced CSS Techniques",
-      videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
-    },
-  ],
-};
+const initialState = JSON.parse(localStorage.getItem("bucket")) || {};
 
 const bucketSlice = createSlice({
   name: "bucket",
@@ -33,25 +9,30 @@ const bucketSlice = createSlice({
     createBucket(state, action) {
       const { bucketName } = action.payload;
       state[bucketName] = [];
+      localStorage.setItem("bucket", JSON.stringify(state));
     },
     deleteBucket(state, action) {
       const { bucketName } = action.payload;
       delete state[bucketName];
+      localStorage.setItem("bucket", JSON.stringify(state));
     },
     updateBucketName(state, action) {
       const { oldBucketName, newBucketName } = action.payload;
       state[newBucketName] = state[oldBucketName];
       delete state[oldBucketName];
+      localStorage.setItem("bucket", JSON.stringify(state));
     },
     addCard(state, action) {
       const { bucketName, card } = action.payload;
       state[bucketName].push(card);
+      localStorage.setItem("bucket", JSON.stringify(state));
     },
     removeCard(state, action) {
       const { bucketName, cardId } = action.payload;
       state[bucketName] = state[bucketName].filter(
         (card) => card.id !== cardId
       );
+      localStorage.setItem("bucket", JSON.stringify(state));
     },
   },
 });

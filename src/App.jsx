@@ -13,6 +13,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<Home />} />
+          <Route path="user/:userId" element={<Home />} />
           <Route path="vault" element={<Vault />} />
           <Route path="login" element={<LoginForm />} />
           <Route path="*" element={<Navigate to="/home" />} />

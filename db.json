@@ -1,0 +1,27 @@
+{
+    "entertainment": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174000",
+        "name": "Top 10 Comedy Movies",
+        "videoLink": "https://www.youtube.com/watch?v=gJmz31JywM0"
+      },
+      {
+        "id": "123e4567-e89b-12d3-a456-426614876011",
+        "name": "Best Action Scenes",
+        "videoLink": "https://www.youtube.com/watch?v=gJmz31JywM0"
+      }
+    ],
+    "education": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174001",
+        "name": "Introduction to JavaScript",
+        "videoLink": "https://www.youtube.com/watch?v=gJmz31JywM0"
+      },
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "name": "Advanced CSS Techniques",
+        "videoLink": "https://www.youtube.com/watch?v=gJmz31JywM0"
+      }
+    ]
+  }
+  
