@@ -5,6 +5,7 @@ import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import Vault from "./pages/Vault";
 import LoginForm from "./ui/LoginForm";
+import Protected from "./ui/Protected";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<Home />} />
           <Route path="user/:userId" element={<Home />} />
-          <Route path="vault" element={<Vault />} />
+          <Route path="vault" element={<Protected Component={Vault} />} />
           <Route path="login" element={<LoginForm />} />
           <Route path="*" element={<Navigate to="/home" />} />
         </Route>
