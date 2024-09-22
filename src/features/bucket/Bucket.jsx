@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import styles from "./Bucket.module.css";
+
 import { updateBucketName } from "./bucketSlice";
 
 import Card from "../card/Card";
@@ -26,21 +28,26 @@ function Bucket({ bucket, vault }) {
   }
   //   return <div>bucket</div>
   return (
-    <div>
-      <h1 className="text-2xl uppercase">
+    <div className={styles["bucket-container"]}>
+      <div className={styles["bucket-header"]}>
         <input
           type="text"
+          className={styles["bucket-title-input"]}
           defaultValue={bucket}
           onChange={(e) => setBucketName(e.target.value)}
           onBlur={() => handleUpdateBucketName(bucket)}
         />
-      </h1>
-      {vault[bucket]?.map((card, i) => (
-        <Card card={card} key={i} bucketName={bucket} index={i} />
-      ))}
+      </div>
+      <div className={styles["card-list"]}>
+        {vault[bucket]?.map((card, i) => (
+          <div key={i} className={styles["card-item"]}>
+            <Card card={card} bucketName={bucket} index={i} />
+          </div>
+        ))}
+      </div>
       <Modal>
         <Modal.Open>
-          <Button styleType="primary">ADD CARD</Button>
+          <button className={styles["add-card-button"]}>ADD CARD</button>
         </Modal.Open>
         <Modal.Window>
           <CreateCardForm bucketName={bucket} />

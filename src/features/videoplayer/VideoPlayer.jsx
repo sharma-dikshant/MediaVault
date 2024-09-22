@@ -1,15 +1,18 @@
 import ReactPlayer from "react-player";
+import styles from "./VideoPlayer.module.css";
 
 function VideoPlayer({ card }) {
   return (
-    <div>
-      <h2>{card?.name}</h2>
-      <ReactPlayer
-        url={card?.videoLink}
-        width={450}
-        height={450}
-        controls={true}
-      />
+    <div className={styles["video-player-container"]}>
+      <h2 className={styles["video-title"]}>{card?.name}</h2>
+      <div className={styles["video-player"]}>
+        <ReactPlayer
+          url={card?.videoLink}
+          width="100%"
+          height="450px"
+          controls={true}
+        />
+      </div>
     </div>
   );
 }

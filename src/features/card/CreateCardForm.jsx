@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { addCard } from "../bucket/bucketSlice";
 
-import Button from "../../ui/Button";
+import styles from "./CreateCardForm.module.css";
+
 
 function CreateCardForm({ bucketName }) {
   const dispatch = useDispatch();
@@ -22,22 +23,24 @@ function CreateCardForm({ bucketName }) {
     setCardVideoLink("");
   }
   return (
-    <div className="flex">
+    <div className={styles["form-container"]}>
       <input
         type="text"
+        className={styles["form-input"]}
         value={cardName}
         onChange={(e) => setCardName(e.target.value)}
         placeholder="Card Name"
       />
       <input
         type="text"
+        className={styles["form-input"]}
         value={cardVideoLink}
         onChange={(e) => setCardVideoLink(e.target.value)}
         placeholder="Card Video Link"
       />
-      <Button styleType="submitBtn" onClick={handleAddCard}>
+      <button className={styles["submit-btn"]} onClick={handleAddCard}>
         CREATE CARD
-      </Button>
+      </button>
     </div>
   );
 }

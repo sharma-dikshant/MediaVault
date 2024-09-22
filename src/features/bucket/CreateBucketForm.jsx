@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { createBucket } from "./bucketSlice";
 
-import Button from "../../ui/Button";
+import styles from "./CreateBucketForm.module.css";
+
 
 function CreateBucketForm() {
   const dispatch = useDispatch();
@@ -18,15 +19,21 @@ function CreateBucketForm() {
   }
 
   return (
-    <div>
+    <div className={styles["form-container"]}>
       <form onSubmit={handleCreateBucket}>
-        <label htmlFor="bucketName">Bucket Name</label>
+        <label className={styles["form-label"]} htmlFor="bucketName">
+          Bucket Name
+        </label>
         <input
+          className={styles["form-input"]}
           type="text"
           name="bucketName"
           onChange={(e) => setBucketName(e.target.value)}
+          value={bucketName}
         />
-        <Button styleType="submitBtn">ADD BUCKET</Button>
+        <button className={styles["submit-btn"]} type="submit">
+          ADD BUCKET
+        </button>
       </form>
     </div>
   );

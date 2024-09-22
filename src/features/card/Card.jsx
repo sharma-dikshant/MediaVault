@@ -3,6 +3,8 @@ import ReactPlayer from "react-player/youtube";
 
 import { removeCard } from "../bucket/bucketSlice";
 
+import styles from "./Card.module.css";
+
 import Modal from "../../ui/Modal";
 import VideoPlayer from "../videoplayer/VideoPlayer";
 import Button from "../../ui/Button";
@@ -17,23 +19,21 @@ function Card({ card, index, bucketName }) {
   return (
     <Modal>
       <Modal.Open>
-        <div className="border p-3 m-1 bg-slate-200">
-          <div>
+        <div className={styles["card-container"]}>
+          <div className={styles["card-video"]}>
             <ReactPlayer
               url={card?.videoLink}
-              width={150}
-              height={150}
+              width="100%"
+              height="150px"
               light={true}
             />
           </div>
-          <div>
-            <h2>{card?.name}</h2>
-          </div>
-          <div className="flex justify-between">
-            <Button styleType="danger" onClick={handleDelete}>
+          <div className={styles["card-title"]}>{card?.name}</div>
+          <div className={styles["card-buttons"]}>
+            <button className={styles["delete-button"]} onClick={handleDelete}>
               DELETE
-            </Button>
-            <Button styleType="primary">EDIT</Button>
+            </button>
+            <button className={styles["edit-button"]}>EDIT</button>
           </div>
         </div>
       </Modal.Open>

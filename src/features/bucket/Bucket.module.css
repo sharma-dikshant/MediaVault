@@ -1,0 +1,81 @@
+.bucket-container {
+    background-color: #f0f4f8;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .bucket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .bucket-title-input {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: 2px solid #007bff;
+    border-radius: 0.3rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .bucket-title-input:focus {
+    outline: none;
+    border-color: #0056b3;
+  }
+  
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-item {
+    flex: 1 1 calc(33.333% - 1rem);
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-item:hover {
+    transform: scale(1.03);
+  }
+  
+  .add-card-button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-card-button:hover {
+    background-color: #218838;
+  }
+  
+  @media (max-width: 768px) {
+    .card-item {
+      flex: 1 1 calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-item {
+      flex: 1 1 100%;
+    }
+  
+    .bucket-title-input {
+      width: 100%;
+    }
+  }
+  
