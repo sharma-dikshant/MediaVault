@@ -7,7 +7,7 @@ import { updateBucketName } from "./bucketSlice";
 
 import Card from "../card/Card";
 import Modal from "../../ui/Modal";
-import CreateCardForm from "../card/CreateCardForm";
+import CreateEditCardForm from "../card/CreateEditCardForm";
 import Button from "../../ui/Button";
 
 function Bucket({ bucket, vault }) {
@@ -50,7 +50,7 @@ function Bucket({ bucket, vault }) {
           <button className={styles["add-card-button"]}>ADD CARD</button>
         </Modal.Open>
         <Modal.Window>
-          <CreateCardForm bucketName={bucket} />
+          <CreateEditCardForm bucketName={bucket} />
         </Modal.Window>
       </Modal>
     </div>

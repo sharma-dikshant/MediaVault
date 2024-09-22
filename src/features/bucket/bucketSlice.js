@@ -34,12 +34,20 @@ const bucketSlice = createSlice({
       );
       localStorage.setItem("bucket", JSON.stringify(state));
     },
+    updateCard(state, action) {
+      const { bucketName, card } = action.payload;
+      state[bucketName] = state[bucketName].map((c) =>
+        c.id === card.id ? card : c
+      );
+      localStorage.setItem("bucket", JSON.stringify(state));
+    },
   },
 });
 
 export const {
   removeCard,
   addCard,
+  updateCard,
   createBucket,
   deleteBucket,
   updateBucketName,

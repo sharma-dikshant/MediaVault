@@ -8,6 +8,7 @@ import styles from "./Card.module.css";
 import Modal from "../../ui/Modal";
 import VideoPlayer from "../videoplayer/VideoPlayer";
 import Button from "../../ui/Button";
+import CreateEditCardForm from "./CreateEditCardForm";
 
 function Card({ card, bucketName }) {
   const dispatch = useDispatch();
@@ -18,8 +19,8 @@ function Card({ card, bucketName }) {
 
   return (
     <Modal>
-      <Modal.Open>
-        <div className={styles["card-container"]}>
+      <div className={styles["card-container"]}>
+        <Modal.Open>
           <div className={styles["card-video"]}>
             <ReactPlayer
               url={card?.videoLink}
@@ -28,15 +29,27 @@ function Card({ card, bucketName }) {
               light={true}
             />
           </div>
-          <div className={styles["card-title"]}>{card?.name}</div>
-          <div className={styles["card-buttons"]}>
-            <button className={styles["delete-button"]} onClick={handleDelete}>
-              DELETE
-            </button>
-            <button className={styles["edit-button"]}>EDIT</button>
-          </div>
+        </Modal.Open>
+
+        <div className={styles["card-title"]}>{card?.name}</div>
+        <div className={styles["card-buttons"]}>
+          <button className={styles["delete-button"]} onClick={handleDelete}>
+            DELETE
+          </button>
+          <Modal>
+            <Modal.Open>
+              <button className={styles["edit-button"]}>EDIT</button>
+            </Modal.Open>
+            <Modal.Window>
+              <CreateEditCardForm
+                bucketName={bucketName}
+                edit={true}
+                card={card}
+              />
+            </Modal.Window>
+          </Modal>
         </div>
-      </Modal.Open>
+      </div>
       <Modal.Window>
         <VideoPlayer card={card} />
       </Modal.Window>

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { addCard } from "../bucket/bucketSlice";
+import { addCard, updateCard } from "../bucket/bucketSlice";
 
-import styles from "./CreateCardForm.module.css";
+import styles from "./CreateEditCardForm.module.css";
 
-function CreateCardForm({ bucketName }) {
+function CreateCardForm({ bucketName, edit = false, card = null }) {
   const dispatch = useDispatch();
-  const [cardName, setCardName] = useState("");
-  const [cardVideoLink, setCardVideoLink] = useState("");
+  const [cardName, setCardName] = useState(edit ? card?.name : "");
+  const [cardVideoLink, setCardVideoLink] = useState(
+    edit ? card?.videoLink : ""
+  );
 
   function handleAddCard() {
     if (!cardName || !cardVideoLink) return;
@@ -19,6 +21,19 @@ function CreateCardForm({ bucketName }) {
     };
     // dispatch action to add card
     dispatch(addCard({ bucketName, card: newCard }));
+    setCardName("");
+    setCardVideoLink("");
+  }
+
+  function handleUpdateCard() {
+    if (!cardName || !cardVideoLink) return;
+    const updatedCard = {
+      ...card,
+      name: cardName,
+      videoLink: cardVideoLink,
+    };
+    // dispatch action to update card
+    dispatch(updateCard({ bucketName, card: updatedCard }));
     setCardName("");
     setCardVideoLink("");
   }
@@ -38,9 +53,15 @@ function CreateCardForm({ bucketName }) {
         onChange={(e) => setCardVideoLink(e.target.value)}
         placeholder="Card Video Link"
       />
-      <button className={styles["submit-btn"]} onClick={handleAddCard}>
-        CREATE CARD
-      </button>
+      {!edit ? (
+        <button className={styles["submit-btn"]} onClick={handleAddCard}>
+          CREATE CARD
+        </button>
+      ) : (
+        <button className={styles["submit-btn"]} onClick={handleUpdateCard}>
+          UPDATE CARD
+        </button>
+      )}
     </div>
   );
 }
