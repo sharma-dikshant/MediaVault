@@ -1,14 +1,23 @@
 import { useForm } from "react-hook-form";
 import styles from "./LoginForm.module.css";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/user/userSlice";
+import { useNavigate } from "react-router";
 
 function LoginForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   function onSubmit(data) {
-    console.log(data);
+    dispatch(setUser({ email: data.email, name: data.name }));
+    // console.log(data);
+    reset();
+    navigate("/");
   }
 
   return (
