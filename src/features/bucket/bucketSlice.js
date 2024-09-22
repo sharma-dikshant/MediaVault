@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   entertainment: [
     {
+      id: crypto.randomUUID(),
       name: "Top 10 Comedy Movies",
       videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
@@ -13,10 +14,12 @@ const initialState = {
   ],
   education: [
     {
+      id: crypto.randomUUID(),
       name: "Introduction to JavaScript",
       videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
     {
+      id: crypto.randomUUID(),
       name: "Advanced CSS Techniques",
       videoLink: "https://www.youtube.com/watch?v=gJmz31JywM0",
     },
@@ -45,8 +48,10 @@ const bucketSlice = createSlice({
       state[bucketName].push(card);
     },
     removeCard(state, action) {
-      const { bucketName, cardIndex } = action.payload;
-      state[bucketName].splice(cardIndex, 1);
+      const { bucketName, cardId } = action.payload;
+      state[bucketName] = state[bucketName].filter(
+        (card) => card.id !== cardId
+      );
     },
   },
 });

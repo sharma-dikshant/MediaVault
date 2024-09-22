@@ -9,10 +9,10 @@ import Modal from "../../ui/Modal";
 import VideoPlayer from "../videoplayer/VideoPlayer";
 import Button from "../../ui/Button";
 
-function Card({ card, index, bucketName }) {
+function Card({ card, bucketName }) {
   const dispatch = useDispatch();
   function handleDelete() {
-    dispatch(removeCard({ bucketName, cardIndex: index }));
+    dispatch(removeCard({ bucketName, cardId: card?.id }));
     console.log("Delete card", index);
   }
 

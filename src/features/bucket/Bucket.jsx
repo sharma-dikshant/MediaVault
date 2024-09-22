@@ -41,7 +41,7 @@ function Bucket({ bucket, vault }) {
       <div className={styles["card-list"]}>
         {vault[bucket]?.map((card, i) => (
           <div key={i} className={styles["card-item"]}>
-            <Card card={card} bucketName={bucket} index={i} />
+            <Card card={card} bucketName={bucket} />
           </div>
         ))}
       </div>
