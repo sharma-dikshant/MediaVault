@@ -9,7 +9,7 @@ function VideoPlayer({ card }) {
         <ReactPlayer
           url={card?.videoLink}
           width="100%"
-          height="450px"
+          height="300px"
           controls={true}
         />
       </div>

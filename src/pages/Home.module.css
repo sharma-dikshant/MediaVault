@@ -1,0 +1,59 @@
+/* Container for the home page */
+.home-container {
+    min-height: 80vh;
+    /* Full viewport height */
+    background-color: #f7fafc;
+    /* Light gray background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Center text */
+}
+
+/* Heading styling */
+.welcome-heading {
+    font-size: 2rem;
+    /* Larger font for the main heading */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* Space below heading */
+}
+
+/* Paragraph styling */
+.welcome-text {
+    color: #4a5568;
+    /* Darker gray for text */
+    margin-bottom: 1.5rem;
+    /* Space below paragraph */
+}
+
+/* Button styling */
+.primary-button {
+    background-color: #4f46e5;
+    /* Primary color */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+    background-color: #4338ca;
+    /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-heading {
+        font-size: 1.5rem;
+        /* Smaller heading on mobile */
+    }
+
+    .welcome-text {
+        font-size: 0.9rem;
+        /* Smaller text on mobile */
+    }
+}
